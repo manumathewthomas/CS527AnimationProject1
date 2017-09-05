@@ -14,7 +14,9 @@ let Animation = (function() {
     let init = function() {
 
        initSimulation();
-       document.addEventListener("click", ball);
+       document.addEventListener("click", function(e){
+           return balls.push(new ball(e));
+       });
        
        
     }
@@ -33,8 +35,7 @@ let Animation = (function() {
                 container.appendChild(this.canvas);
             },
             clear : function() {
-                this.context.fillStyle = "#000";
-                this.context.clear();
+                this.context.clearRect(0, 0, 1920, 700);
             }
 
         }
@@ -49,26 +50,21 @@ let Animation = (function() {
         this.centerX = this.mousePos.x;
         this.centerY = this.mousePos.y;
         this.pos = {x: this.centerX, y: this.centerY}
-        this.context.fillStyle = getRandomColor();
+       
         this.radius = 70;
 
+        this.context.fillStyle = getRandomColor();
 
    
         this.gravity = getGravity();
 
         this.update = function(i) {
             pos = balls[i].gravity(balls[i].pos);
-
             balls[i].context.beginPath();
             balls[i].context.arc(balls[i].pos.x, balls[i].pos.y, balls[i].radius, 0, 2 * Math.PI, false);
             balls[i].context.fill();
             balls[i].context.lineWidth = 5;
         }
-
-        balls.push(this);
-        
-        // this.gravity = getGravity();
-        // this.gravity(this);
     }
 
     let getRandomColor = function() {
@@ -97,7 +93,7 @@ let Animation = (function() {
  
     let updateSimulation = function() {
       
-        // simulation.clear();
+      simulation.clear();
         _.forEach(balls, function(d, i){
             d.update(i);
         });

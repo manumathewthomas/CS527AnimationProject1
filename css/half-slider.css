@@ -9,3 +9,8 @@
 #canvasContainer {
     margin-left: 1%;
 }
+
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #000;
+}
