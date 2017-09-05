@@ -53,13 +53,14 @@ let Animation = (function() {
        
         this.radius = 70;
 
-        this.context.fillStyle = getRandomColor();
-
+        this.color = getRandomColor();
    
         this.gravity = getGravity();
 
         this.update = function(i) {
             pos = balls[i].gravity(balls[i].pos);
+
+            balls[i].context.fillStyle = balls[i].color;
             balls[i].context.beginPath();
             balls[i].context.arc(balls[i].pos.x, balls[i].pos.y, balls[i].radius, 0, 2 * Math.PI, false);
             balls[i].context.fill();
