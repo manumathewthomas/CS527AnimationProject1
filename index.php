@@ -46,12 +46,28 @@ header("Access-Control-Allow-Methods: PUT, POST, GET, OPTIONS, DELETE");
 
     <!-- Page Content -->
     <section class="py-5">
-        <div id="canvasContainter">
-                
+        <div id="canvasContainter"></div>
+
+        <div class="row">
+          <div class="col-sm-4">  
+            <h3 id="airFrictionLabel">Air Friction</h3>
+            <input type="range" min="0" max="5" step=0.01 class="slider" id="airFrictionRange">
+          </div>
+          <div class="col-sm-4">  
+            <h3 id="massLabel">Mass</h3>
+            <input type="range" min="1" max="1000" step=1 class="slider" id="massRange">
+          </div>
+          <div class="col-sm-4">  
+            <h3 id="bounceLabel">Bounce</h3>
+            <input type="range" min="0" max="1" step=0.01 class="slider" id="bounceRange">
+          </div>
         </div>
-    
-        <div class="container">
-        
+
+        <div class="row">
+          <div class="col-sm-4">  
+            <h3 id="motionBlurLabel">Motion Blur</h3>
+            <input type="range" min="0.05" max="1" step=0.01 class="slider" id="motionBlurRange">
+          </div>
         </div>
     </section>
 
